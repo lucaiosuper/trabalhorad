@@ -44,6 +44,13 @@ def carregar_pdf():
             if data in feriados_por_ano.get(data.split("-")[0], set())
         ]
 
+        if feriados_no_pdf:
+            resultado = "As seguintes datas são feriados:\n" + "\n".join(feriados_no_pdf)
+        else:
+            resultado = "Nenhuma das datas encontradas é feriado."
+
+        messagebox.showinfo("Resultado", resultado)
+
     except Exception as e:
         messagebox.showerror("Erro", f"Ocorreu um erro:\n{e}")
 
